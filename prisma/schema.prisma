@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique @db.VarChar(20)
+  email     String   @unique @db.VarChar(50)
+  password  String   @db.VarChar(15)
+  role      Role
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  shelf     Shelf[]
+  posts     Post[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(60)
+  type      PostType
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int
+}
+
+enum PostType {
+  HOWTOPLAY
+  REVIEW
+}
+
+model Shelf {
+  id              Int              @id @default(autoincrement())
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId          Int
+  shelfBoardgames ShelfBoardgame[]
+}
+
+model Boardgame {
+  id              Int              @id @default(autoincrement())
+  name            String           @unique @db.VarChar(80)
+  thaiName        String?          @unique @db.VarChar(80)
+  boardgameImage  String
+  minPlayer       Int
+  maxPlayer       Int
+  age             Int
+  type            BoardGameType
+  category        Category
+  thaiLC          String
+  description     String
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  shelfBoardgames ShelfBoardgame[]
+}
+
+model ShelfBoardgame {
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  shelf       Shelf     @relation(fields: [shelfId], references: [id], onDelete: Cascade)
+  shelfId     Int
+  boardgame   Boardgame @relation(fields: [boardgameId], references: [id], onDelete: Cascade)
+  boardgameId Int
+
+  @@id([shelfId, boardgameId])
+}
+
+enum BoardGameType {
+  CORE
+  EXPANSION
+}
+
+enum Category {
+  STRATEGY
+  PARTY
+  FAMILY
+  PUZZLE
+  DEDUCTION
+  RACING
+  BLUFFING
+  OTHERS
+}
