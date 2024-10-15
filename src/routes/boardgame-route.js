@@ -3,7 +3,7 @@ const router = express.Router();
 const { getAllBoardGames, viewBoardGame, addToShelf } = require("../controllers");
 
 router.get("/", getAllBoardGames);
-router.get("/:id", viewBoardGame);
-router.post("/:id", addToShelf);
+router.get("/:boardgameId", viewBoardGame);
+router.post("/:boardgameId", addToShelf);
 
 module.exports = router;
