@@ -1,5 +1,9 @@
 require("dotenv").config();
-const { errorMiddleware, notFoundHandler } = require("./middlewares");
+const {
+  errorMiddleware,
+  notFoundHandler,
+  authenticate,
+} = require("./middlewares");
 const { express, app, cors, morgan } = require("./models");
 const {
   authRoute,
@@ -14,10 +18,10 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use("/auth", authRoute);
-app.use("/boardgames", boardgameRoute);
-app.use("/posts", postRoute);
-app.use("/shelf", shelfRoute);
-app.use("/admin", adminRoute);
+app.use("/boardgames", authenticate, boardgameRoute);
+app.use("/posts", authenticate, postRoute);
+app.use("/myshelf", authenticate, shelfRoute);
+app.use("/admin", authenticate, adminRoute);
 
 app.use("*", notFoundHandler);
 app.use(errorMiddleware);

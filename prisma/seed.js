@@ -3,6 +3,19 @@ const bcrypt = require("bcryptjs");
 
 const hashedPassword = bcrypt.hashSync("123456", 10); // hash no async
 
+const usersData = [
+  {
+    username: "LemonTi8",
+    email: "lemonti@gmail.com",
+    password: hashedPassword,
+  },
+  {
+    username: "123456",
+    email: "123456@gmail.com",
+    password: hashedPassword,
+  },
+];
+
 const boardgameData = [
   {
     name: "Brass: Birmingham",
@@ -365,6 +378,9 @@ const boardgameData = [
 async function run() {
   await prisma.boardgame.createMany({
     data: boardgameData,
+  });
+  await prisma.user.createMany({
+    data: usersData,
   });
 }
 

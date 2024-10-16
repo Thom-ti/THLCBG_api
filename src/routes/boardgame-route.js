@@ -4,6 +4,6 @@ const { getAllBoardGames, viewBoardGame, addToShelf } = require("../controllers"
 
 router.get("/", getAllBoardGames);
 router.get("/:boardgameId", viewBoardGame);
-router.post("/:boardgameId", addToShelf);
+router.post("/", addToShelf);
 
 module.exports = router;

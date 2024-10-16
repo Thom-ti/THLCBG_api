@@ -17,7 +17,7 @@ const authenticate = async (req, res, next) => {
 
     const foundUser = await prisma.user.findUnique({
       where: {
-        id: payload.id,
+        id: payload.user.id,
       },
     });
 
@@ -25,7 +25,6 @@ const authenticate = async (req, res, next) => {
       return createError(401, "Unauthorized");
     }
 
-    // delete foundUser.password;
     const { password, createdAt, updatedAt, ...userData } = foundUser;
     req.user = userData;
     next(); // *** ห้ามลืม next() ***
