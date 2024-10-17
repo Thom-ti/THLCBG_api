@@ -23,7 +23,38 @@ exports.getMyShelf = async (req, res, next) => {
 
 exports.updateStatus = async (req, res, next) => {
   try {
-    res.json("updateStatus Controller");
+    const { boardgameId } = req.params;
+    const { id } = req.user;
+    const { status } = req.body;
+    console.log("--------------------", status);
+
+    const findShelf = await prisma.shelf.findFirst({
+      where: {
+        userId: Number(id),
+      },
+    });
+
+    if (!findShelf) {
+      return next(createError(400, "Shelf not found"));
+    }
+
+    if (findShelf.userId !== Number(id)) {
+      return next(createError(401, "Cannot update from another user's shelf"));
+    }
+      console.log('hello',status)
+    const updateStatus = await prisma.shelfBoardgame.update({
+      where: {
+        shelfId_boardgameId: {
+          boardgameId: Number(boardgameId),
+          shelfId: Number(findShelf.id),
+        },
+      },
+      data: {
+        status,
+      },
+    });
+
+    res.json({ updateStatus });
   } catch (err) {
     next(err);
   }
