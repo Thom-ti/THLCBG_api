@@ -32,7 +32,7 @@ exports.addToShelf = async (req, res, next) => {
         userId: Number(id),
       },
     });
-    console.log(findId);
+
     if (!findId) {
       const data = await prisma.shelf.create({
         data: {
@@ -46,15 +46,18 @@ exports.addToShelf = async (req, res, next) => {
       });
       return res.json({ data });
     }
+
     const findBG = await prisma.shelfBoardgame.findFirst({
       where: {
         boardgameId: Number(req.body.id),
         shelfId: Number(findId.id),
       },
     });
+
     if (findBG) {
       return createError(400, "Already added to shelf");
     }
+
     const data = await prisma.shelf.update({
       where: {
         id: Number(findId.id),
@@ -68,9 +71,6 @@ exports.addToShelf = async (req, res, next) => {
       },
     });
     res.json("Completed Add to Shelf");
-
-    // console.log(req.body)
-    // res.send("Hello")
   } catch (err) {
     next(err);
   }

@@ -14,6 +14,21 @@ const usersData = [
     email: "123456@gmail.com",
     password: hashedPassword,
   },
+  {
+    username: "CoolHansome",
+    email: "coolhansome@gmail.com",
+    password: hashedPassword,
+  },
+  {
+    username: "InwZa007",
+    email: "InwZa007@gmail.com",
+    password: hashedPassword,
+  },
+  {
+    username: "Codecamp",
+    email: "codecamp@gmail.com",
+    password: hashedPassword,
+  },
 ];
 
 const boardgameData = [
@@ -74,7 +89,7 @@ const boardgameData = [
   },
   {
     name: "Gloomhaven: Jaws of the Lion",
-    thaiName: "คมเขี้ยวราชสีห์",
+    thaiName: "กลูมเฮเวน: คมเขี้ยวราชสีห์",
     boardgameImage:
       "https://cf.geekdo-images.com/_HhIdavYW-hid20Iq3hhmg__imagepage/img/JUEcmeR5Cm5haFjoG5f_Uv8Zlws=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5055631.jpg",
     minPlayer: 1,
@@ -360,6 +375,217 @@ const boardgameData = [
     thaiLC: "Siam Board Games",
     description:
       "เดินทางไปเอเชียเพื่อค้นพบนกชนิดใหม่ในเขตอนุรักษ์สัตว์ป่าของคุณ",
+  },
+  {
+    name: "Decrypto",
+    thaiName: "รหัสลับอัจฉริยะ",
+    boardgameImage:
+      "https://cf.geekdo-images.com/hHZWXnUTMYDd_KTAM6Jwlw__imagepage/img/txjLrQy6eZNhk1caOxfTPn54mac=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3759421.jpg",
+    minPlayer: 3,
+    maxPlayer: 8,
+    age: 12,
+    type: "CORE",
+    category: "PARTY",
+    thaiLC: "WDG Distributor",
+    description:
+      "ถอดรหัสของฝ่ายตรงข้ามก่อนที่พวกเขาจะถอดรหัสของคุณ อย่าให้ถูกจับได้",
+  },
+  {
+    name: "SCOUT",
+    boardgameImage:
+      "https://cf.geekdo-images.com/cf0xxkevbwTGF3VUZymKjg__imagepage/img/c1nUYPglSR9Br_zPKasdnwi4q78=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6398727.png",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 9,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "แข่งกันแย่งชิงนักแสดงของอีกฝ่าย เพื่อจัดการแสดงละครสัตว์ที่โดดเด่น",
+  },
+  {
+    name: "Architects of the West Kingdom",
+    thaiName: "สถาปนิกแห่งนครตะวันตก",
+    boardgameImage:
+      "https://cf.geekdo-images.com/OAX7HfOz-9N60StgADzd0g__imagepage/img/5ywjRTCEspI8ImeRWZWTgeuhl4g=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3781944.png",
+    minPlayer: 1,
+    maxPlayer: 5,
+    age: 12,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "DICE CUP",
+    description:
+      "คุณจะเป็นผู้รับใช้ของกษัตริย์ที่มีคุณธรรมหรือชั่วร้าย? สร้างเส้นทางสู่ความรุ่งโรจน์ของคุณ",
+  },
+  {
+    name: "The Quest for El Dorado",
+    thaiName: "ล่าขุมทรัพย์นครทองคำ",
+    boardgameImage:
+      "https://cf.geekdo-images.com/b5VyYjNfAxJ4Z-Dx2UWlqg__imagepage/img/oGGZLnPoBVdO4ZlNquRvuzaQmrU=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7945692.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 10,
+    type: "CORE",
+    category: "RACING",
+    thaiLC: "WDG Distributor",
+    description: "วิ่งแข่งขันผ่านป่าทึบในอเมริกาใต้เพื่อตามหาเมืองทองคำในตำนาน",
+  },
+  {
+    name: "The White Castle",
+    thaiName: "ปราสาทกระสาขาว",
+    boardgameImage:
+      "https://cf.geekdo-images.com/qXT1U-nFh9PE8ujfdmI7dA__imagepage/img/zfTFhCz8g6OeJi8V1HkDpaDbSzw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7754663.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 12,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "ขึ้นเป็นตระกูลที่มีอิทธิพลมากที่สุดในฐานที่มั่นฮิเมจิของญี่ปุ่น",
+  },
+  {
+    name: "Patchwork",
+    thaiName: "เย็บปักถักร้อย",
+    boardgameImage:
+      "https://cf.geekdo-images.com/wLW7pFn0--20lEizEz5p3A__imagepage/img/qDuX2TRjK3utCghPRUfrG42fcFk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2270442.jpg",
+    minPlayer: 2,
+    maxPlayer: 2,
+    age: 8,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "ต่อชิ้นผ้าเข้าด้วยกันและไม่เว้นช่องว่าง เพื่อเป็นผู้เชี่ยวชาญด้านกระดุม",
+  },
+  {
+    name: "Codenames",
+    thaiName: "โค้ดเนมส์",
+    boardgameImage:
+      "https://cf.geekdo-images.com/F_KDEu0GjdClml8N7c8Imw__imagepage/img/rc_Do8f5v41nWEGcwHE1eKAkIfI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2582929.jpg",
+    minPlayer: 2,
+    maxPlayer: 8,
+    age: 14,
+    type: "CORE",
+    category: "PARTY",
+    thaiLC: "DICE CUP",
+    description: "",
+  },
+  {
+    name: "Pandemic",
+    thaiName: "เกมโรคระบาด",
+    boardgameImage:
+      "https://cf.geekdo-images.com/S3ybV1LAp-8SnHIXLLjVqA__imagepage/img/kIBu-2Ljb_ml5n-S8uIbE6ehGFc=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1534148.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 8,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Siam Board Games",
+    description:
+      "ทีมผู้เชี่ยวชาญของคุณต้องป้องกันไม่ให้โลกประสบกับการระบาดของไวรัส",
+  },
+  {
+    name: "Cartographers",
+    thaiName: "นักเขียนแผนที่แห่งนาลอส",
+    boardgameImage:
+      "https://cf.geekdo-images.com/GifbnAmsA4lfEcDkeaC9VA__imagepage/img/TvxriorE7sP7kHcUQAgLGoJP7ZQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4397932.png",
+    minPlayer: 1,
+    maxPlayer: 100,
+    age: 10,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "สำรวจดินแดนในนามของราชินีและวาดแผนที่ที่ดีที่สุดเพื่อรับความโปรดปรานจากองค์ราชินี",
+  },
+  {
+    name: "It's a Wonderful World",
+    thaiName: "สร้างโลกมหัศจรรย์",
+    boardgameImage:
+      "https://cf.geekdo-images.com/od4vDTdXGPSVc-kjLqM11w__imagepage/img/j25VMfEYxUIIp7tk_F8QCv96Z0g=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4651175.jpg",
+    minPlayer: 1,
+    maxPlayer: 5,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "DICE CUP",
+    description:
+      "จัดระเบียบโลกดิสโทเปียที่ 'สมบูรณ์แบบ' ให้กับตัวเอง ทำโครงการให้เสร็จและจัดสรรทรัพยากรให้เต็มที่",
+  },
+  {
+    name: "Praga Caput Regni",
+    thaiName: "ปราก มหานครแห่งจักรวรรดิ",
+    boardgameImage:
+      "https://cf.geekdo-images.com/aUPeXVwc40xrgud2XeZwyA__imagepage/img/ZZJm8Ip3ANP5TUcOEiZKs5Sti9k=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5671087.png",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Undercut Games",
+    description:
+      "ชาวเมืองผู้มั่งมีในยุคกลางของปรากจัดโครงการก่อสร้างเพื่อให้ได้รับความโปรดปรานจากกษัตริย์",
+  },
+    {
+    name: "Ticket to Ride: Europe",
+    thaiName: "เกมต่อรถไฟยุโรป",
+    boardgameImage: "https://cf.geekdo-images.com/0K1AOciqlMVUWFPLTJSiww__imagepage/img/pC5hC440R46jn4EpfdYV5rL4VOc=/fit-in/900x600/filters:no_upscale():strip_icc()/pic66668.jpg",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 8,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "WDG Distributor",
+    description: "สร้างเส้นทางรถไฟทั่วทั้งยุโรปในภาคต่อของเกมกระดานยอดนิยมสำหรับครอบครัว"
+  },
+    {
+    name: "Stone Age",
+    thaiName: "อารยธรรมยุคหิน",
+    boardgameImage: "https://cf.geekdo-images.com/elmZegVZ6gp4_5izUgxGQQ__imagepage/img/rC8YvN1x0vj-3ot8WK9YDzDxORU=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1632539.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 10,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Lanlalen",
+    description: "ชนเผ่าในยุคก่อนประวัติศาสตร์ต้องดิ้นรนเพื่อเอาชีวิตรอดและปรับตัว เผ่าใดจะก้าวขึ้นสู่จุดสูงสุด?"
+  },
+    {
+    name: "Unmatched: Cobble & Fog",
+    thaiName: "สัประยุทธสุดขั้ว ภาคคืนหมอกและตรอกหิน",
+    boardgameImage: "https://cf.geekdo-images.com/iyIO6udRfIn0xM1rIxyO2g__imagepage/img/g7x-HM-q7WTn6RqUsIFQYhwBK7Y=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5056685.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 9,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "DICE CUP",
+    description: "วีรบุรุษจากวรรณกรรมยุควิกตอเรียเข้าร่วมการต่อสู้จนถึงแก่ชีวิต"
+  },
+    {
+    name: "Jaipur",
+    thaiName: "ชัยปุระ",
+    boardgameImage: "https://cf.geekdo-images.com/_LTujSe_o16nvjDC-J0seA__imagepage/img/X7qZxqheM7_ADLuPhC11b_9IhYw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5100947.jpg",
+    minPlayer: 2,
+    maxPlayer: 2,
+    age: 10,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Siam Board Games",
+    description: "ค้าขายสินค้าเพื่อเป็นพ่อค้าที่ร่ำรวยที่สุดในเกมสั้น ๆ สำหรับสองคนนี้"
+  },
+    {
+    name: "Harmonies",
+    thaiName: "ฮาร์โมนี่",
+    boardgameImage: "https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__imagepage/img/eEOGt-VTMXD5zwTzFO9M4Lg7pkI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8026369.png",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 10,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description: "สร้างภูมิทัศน์และที่อยู่อาศัยของคุณเองเพื่อเชิญชวนเหล่าสัตว์เข้ามา"
   },
   // {
   //   name: ,

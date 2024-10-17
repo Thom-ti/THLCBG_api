@@ -12,8 +12,8 @@ exports.getMyShelf = async (req, res, next) => {
           include: {
             boardgame: true,
           },
-        }
-      }
+        },
+      },
     });
     res.json({ shelf });
   } catch (err) {
@@ -31,7 +31,33 @@ exports.updateStatus = async (req, res, next) => {
 
 exports.deleteFromShelf = async (req, res, next) => {
   try {
-    res.json("deleteFromShelf Controller");
+    const { boardgameId } = req.params;
+    const { id } = req.user;
+
+    const findShelf = await prisma.shelf.findFirst({
+      where: {
+        userId: Number(id),
+      },
+    });
+
+    if (!findShelf) {
+      return next(createError(400, "Shelf not found"));
+    }
+
+    if (findShelf.userId !== Number(id)) {
+      return next(createError(401, "Cannot delete from another user's shelf"));
+    }
+
+    const deleteBoardgame = await prisma.shelfBoardgame.delete({
+      where: {
+        shelfId_boardgameId: {
+          boardgameId: Number(boardgameId),
+          shelfId: Number(findShelf.id),
+        },
+      },
+    });
+
+    res.json("Deleted from shelf successfully");
   } catch (err) {
     next(err);
   }

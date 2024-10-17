@@ -7,7 +7,7 @@ const {
 } = require("../controllers");
 
 router.get("/", getMyShelf);
-router.patch("/:id", updateStatus);
-router.delete("/:id", deleteFromShelf);
+router.patch("/:boardgameId", updateStatus);
+router.delete("/:boardgameId", deleteFromShelf);
 
 module.exports = router;
