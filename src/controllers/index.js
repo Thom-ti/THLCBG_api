@@ -1,4 +1,4 @@
-const { register, login, forgotPassword } = require("./auth-controller");
+const { register, login, forgotPassword, currentUser } = require("./auth-controller");
 const {
   getAllBoardGames,
   viewBoardGame,
@@ -22,6 +22,7 @@ module.exports = {
   register,
   login,
   forgotPassword,
+  currentUser,
   getAllBoardGames,
   viewBoardGame,
   addToShelf,

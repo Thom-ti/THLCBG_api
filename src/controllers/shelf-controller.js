@@ -40,7 +40,7 @@ exports.updateStatus = async (req, res, next) => {
     if (findShelf.userId !== Number(id)) {
       return createError(401, "Cannot update from another user's shelf");
     }
-    console.log("hello", status);
+    
     const updateStatus = await prisma.shelfBoardgame.update({
       where: {
         shelfId_boardgameId: {

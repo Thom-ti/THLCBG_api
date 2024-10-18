@@ -76,3 +76,22 @@ exports.forgotPassword = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.currentUser = async (req, res, next) => {
+  try {
+    const { email } = req.user;
+    const user = await prisma.user.findFirst({
+      where: {
+        email,
+      },
+      select: {
+        id: true,
+        email: true,
+        role: true,
+      },
+    });
+    res.json({ user });
+  } catch (err) {
+    next(err);
+  }
+};

@@ -8,6 +8,7 @@ const usersData = [
     username: "LemonTi8",
     email: "lemonti@gmail.com",
     password: hashedPassword,
+    role: "ADMIN",
   },
   {
     username: "123456",
