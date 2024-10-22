@@ -70,7 +70,7 @@ exports.updatePost = async (req, res, next) => {
   try {
     const { title, type, content } = req.body;
     const { postId } = req.params;
-    const { id } = req.user;
+    const { id, role } = req.user;
 
     const post = await prisma.post.findUnique({
       where: { id: Number(postId) },
@@ -80,14 +80,14 @@ exports.updatePost = async (req, res, next) => {
       return createError(400, "Post not found");
     }
 
-    const postOwnerId = await prisma.post.findUnique({
+    const postOwnerId = await prisma.post.findFirst({
       where: { id: Number(postId) },
       select: {
         userId: true,
       },
     });
 
-    if (postOwnerId.userId !== id) {
+    if (role !== "ADMIN" && postOwnerId.userId !== id) {
       return createError(403, "You are not the owner of this post");
     }
 
@@ -109,7 +109,7 @@ exports.updatePost = async (req, res, next) => {
 exports.deletePost = async (req, res, next) => {
   try {
     const { postId } = req.params;
-    const { id } = req.user;
+    const { id, role } = req.user;
 
     const post = await prisma.post.findUnique({
       where: { id: Number(postId) },
@@ -126,7 +126,7 @@ exports.deletePost = async (req, res, next) => {
       },
     });
 
-    if (postOwnerId.userId !== id) {
+    if (role !== "ADMIN" && postOwnerId.userId !== id) {
       return createError(403, "You are not the owner of this post");
     }
 

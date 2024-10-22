@@ -470,7 +470,8 @@ const boardgameData = [
     type: "CORE",
     category: "PARTY",
     thaiLC: "DICE CUP",
-    description: "",
+    description:
+      "มอบคำใบ้อันชาญฉลาดเพียงคำเดียวให้กับทีมของคุณเพื่อช่วยให้พวกเขาสามารถมองเห็นตัวแทนของพวกเขาในสนามได้",
   },
   {
     name: "Pandemic",
@@ -528,65 +529,75 @@ const boardgameData = [
     description:
       "ชาวเมืองผู้มั่งมีในยุคกลางของปรากจัดโครงการก่อสร้างเพื่อให้ได้รับความโปรดปรานจากกษัตริย์",
   },
-    {
+  {
     name: "Ticket to Ride: Europe",
     thaiName: "เกมต่อรถไฟยุโรป",
-    boardgameImage: "https://cf.geekdo-images.com/0K1AOciqlMVUWFPLTJSiww__imagepage/img/pC5hC440R46jn4EpfdYV5rL4VOc=/fit-in/900x600/filters:no_upscale():strip_icc()/pic66668.jpg",
+    boardgameImage:
+      "https://cf.geekdo-images.com/0K1AOciqlMVUWFPLTJSiww__imagepage/img/pC5hC440R46jn4EpfdYV5rL4VOc=/fit-in/900x600/filters:no_upscale():strip_icc()/pic66668.jpg",
     minPlayer: 2,
     maxPlayer: 5,
     age: 8,
     type: "CORE",
     category: "FAMILY",
     thaiLC: "WDG Distributor",
-    description: "สร้างเส้นทางรถไฟทั่วทั้งยุโรปในภาคต่อของเกมกระดานยอดนิยมสำหรับครอบครัว"
+    description:
+      "สร้างเส้นทางรถไฟทั่วทั้งยุโรปในภาคต่อของเกมกระดานยอดนิยมสำหรับครอบครัว",
   },
-    {
+  {
     name: "Stone Age",
     thaiName: "อารยธรรมยุคหิน",
-    boardgameImage: "https://cf.geekdo-images.com/elmZegVZ6gp4_5izUgxGQQ__imagepage/img/rC8YvN1x0vj-3ot8WK9YDzDxORU=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1632539.jpg",
+    boardgameImage:
+      "https://cf.geekdo-images.com/elmZegVZ6gp4_5izUgxGQQ__imagepage/img/rC8YvN1x0vj-3ot8WK9YDzDxORU=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1632539.jpg",
     minPlayer: 2,
     maxPlayer: 4,
     age: 10,
     type: "CORE",
     category: "STRATEGY",
     thaiLC: "Lanlalen",
-    description: "ชนเผ่าในยุคก่อนประวัติศาสตร์ต้องดิ้นรนเพื่อเอาชีวิตรอดและปรับตัว เผ่าใดจะก้าวขึ้นสู่จุดสูงสุด?"
+    description:
+      "ชนเผ่าในยุคก่อนประวัติศาสตร์ต้องดิ้นรนเพื่อเอาชีวิตรอดและปรับตัว เผ่าใดจะก้าวขึ้นสู่จุดสูงสุด?",
   },
-    {
+  {
     name: "Unmatched: Cobble & Fog",
     thaiName: "สัประยุทธสุดขั้ว ภาคคืนหมอกและตรอกหิน",
-    boardgameImage: "https://cf.geekdo-images.com/iyIO6udRfIn0xM1rIxyO2g__imagepage/img/g7x-HM-q7WTn6RqUsIFQYhwBK7Y=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5056685.jpg",
+    boardgameImage:
+      "https://cf.geekdo-images.com/iyIO6udRfIn0xM1rIxyO2g__imagepage/img/g7x-HM-q7WTn6RqUsIFQYhwBK7Y=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5056685.jpg",
     minPlayer: 2,
     maxPlayer: 4,
     age: 9,
     type: "CORE",
     category: "STRATEGY",
     thaiLC: "DICE CUP",
-    description: "วีรบุรุษจากวรรณกรรมยุควิกตอเรียเข้าร่วมการต่อสู้จนถึงแก่ชีวิต"
+    description:
+      "วีรบุรุษจากวรรณกรรมยุควิกตอเรียเข้าร่วมการต่อสู้จนถึงแก่ชีวิต",
   },
-    {
+  {
     name: "Jaipur",
     thaiName: "ชัยปุระ",
-    boardgameImage: "https://cf.geekdo-images.com/_LTujSe_o16nvjDC-J0seA__imagepage/img/X7qZxqheM7_ADLuPhC11b_9IhYw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5100947.jpg",
+    boardgameImage:
+      "https://cf.geekdo-images.com/_LTujSe_o16nvjDC-J0seA__imagepage/img/X7qZxqheM7_ADLuPhC11b_9IhYw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5100947.jpg",
     minPlayer: 2,
     maxPlayer: 2,
     age: 10,
     type: "CORE",
     category: "FAMILY",
     thaiLC: "Siam Board Games",
-    description: "ค้าขายสินค้าเพื่อเป็นพ่อค้าที่ร่ำรวยที่สุดในเกมสั้น ๆ สำหรับสองคนนี้"
+    description:
+      "ค้าขายสินค้าเพื่อเป็นพ่อค้าที่ร่ำรวยที่สุดในเกมสั้น ๆ สำหรับสองคนนี้",
   },
-    {
+  {
     name: "Harmonies",
     thaiName: "ฮาร์โมนี่",
-    boardgameImage: "https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__imagepage/img/eEOGt-VTMXD5zwTzFO9M4Lg7pkI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8026369.png",
+    boardgameImage:
+      "https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__imagepage/img/eEOGt-VTMXD5zwTzFO9M4Lg7pkI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8026369.png",
     minPlayer: 1,
     maxPlayer: 4,
     age: 10,
     type: "CORE",
     category: "FAMILY",
     thaiLC: "Tower Tactic Games",
-    description: "สร้างภูมิทัศน์และที่อยู่อาศัยของคุณเองเพื่อเชิญชวนเหล่าสัตว์เข้ามา"
+    description:
+      "สร้างภูมิทัศน์และที่อยู่อาศัยของคุณเองเพื่อเชิญชวนเหล่าสัตว์เข้ามา",
   },
   // {
   //   name: ,
