@@ -1,4 +1,5 @@
-const { prisma } = require("../models");
+const { prisma, path, fs } = require("../models");
+const cloudinary = require("../config/cloudinary");
 const createError = require("../utils/createError");
 
 exports.addBoardGame = async (req, res, next) => {
@@ -6,7 +7,6 @@ exports.addBoardGame = async (req, res, next) => {
     const {
       name,
       thaiName,
-      boardgameImage,
       minPlayer,
       maxPlayer,
       age,
@@ -16,14 +16,25 @@ exports.addBoardGame = async (req, res, next) => {
       description,
     } = req.body;
 
+    const haveFile = !!req.file;
+    let uploadResult = {};
+
+    if (haveFile) {
+      uploadResult = await cloudinary.uploader.upload(req.file.path, {
+        overwrite: true,
+        public_id: path.parse(req.file.path).name,
+      });
+      fs.unlink(req.file.path);
+    }
+
     const boardgame = await prisma.boardgame.create({
       data: {
         name,
         thaiName,
-        boardgameImage,
-        minPlayer,
-        maxPlayer,
-        age,
+        boardgameImage: uploadResult.secure_url || "",
+        minPlayer: Number(minPlayer),
+        maxPlayer: Number(maxPlayer),
+        age: Number(age),
         type,
         category,
         thaiLC,

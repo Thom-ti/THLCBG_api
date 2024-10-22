@@ -599,6 +599,18 @@ const boardgameData = [
     description:
       "สร้างภูมิทัศน์และที่อยู่อาศัยของคุณเองเพื่อเชิญชวนเหล่าสัตว์เข้ามา",
   },
+  {
+    name: "Nucleum",
+    thaiName: "นิวเคลียม",
+    boardgameImage: "https://cf.geekdo-images.com/fIVUaMvbfy6GCOgfxt7xaw__imagepage/img/pGB5F9H0ZHo_i027V2XSdx1r8og=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7647168.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Tower Tactic Games",
+    description: "กลายเป็นผู้นำของการปฏิวัติอุตสาหกรรมในไทม์ไลน์ที่แตกต่างกัน"
+  },
   // {
   //   name: ,
   //   thaiName: ,

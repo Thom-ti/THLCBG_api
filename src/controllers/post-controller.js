@@ -12,6 +12,9 @@ exports.getAllPosts = async (req, res, next) => {
           },
         },
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     res.json({ data });
   } catch (err) {
