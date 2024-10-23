@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const hashedPassword = bcrypt.hashSync("123456", 10); // hash no async
 
-const usersData = [
+const userData = [
   {
     username: "LemonTi8",
     email: "lemonti@gmail.com",
@@ -29,6 +29,27 @@ const usersData = [
     username: "Codecamp",
     email: "codecamp@gmail.com",
     password: hashedPassword,
+  },
+];
+
+const postData = [
+  {
+    title: "Hello World!",
+    type: "GENERAL",
+    content: "This is my first post!",
+    userId: 1,
+  },
+  {
+    title: "Hello World!",
+    type: "GENERAL",
+    content: "This is my second post!",
+    userId: 1,
+  },
+  {
+    title: "กฎการใช้งานเว็บไซต์",
+    type: "ADMIN",
+    content: "1. ห้ามฆ่าสัตว์ 2. ห้ามลักทรัพย์ 3. ห้ามมีชู้ 4. ห้ามพูดปด 5. ห้ามดื่มเหล้า",
+    userId: 1,
   },
 ];
 
@@ -602,14 +623,15 @@ const boardgameData = [
   {
     name: "Nucleum",
     thaiName: "นิวเคลียม",
-    boardgameImage: "https://cf.geekdo-images.com/fIVUaMvbfy6GCOgfxt7xaw__imagepage/img/pGB5F9H0ZHo_i027V2XSdx1r8og=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7647168.jpg",
+    boardgameImage:
+      "https://cf.geekdo-images.com/fIVUaMvbfy6GCOgfxt7xaw__imagepage/img/pGB5F9H0ZHo_i027V2XSdx1r8og=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7647168.jpg",
     minPlayer: 1,
     maxPlayer: 4,
     age: 14,
     type: "CORE",
     category: "STRATEGY",
     thaiLC: "Tower Tactic Games",
-    description: "กลายเป็นผู้นำของการปฏิวัติอุตสาหกรรมในไทม์ไลน์ที่แตกต่างกัน"
+    description: "กลายเป็นผู้นำของการปฏิวัติอุตสาหกรรมในไทม์ไลน์ที่แตกต่างกัน",
   },
   // {
   //   name: ,
@@ -626,11 +648,14 @@ const boardgameData = [
 ];
 
 async function run() {
+  await prisma.user.createMany({
+    data: userData,
+  });
+  await prisma.post.createMany({
+    data: postData,
+  });
   await prisma.boardgame.createMany({
     data: boardgameData,
-  });
-  await prisma.user.createMany({
-    data: usersData,
   });
 }
 

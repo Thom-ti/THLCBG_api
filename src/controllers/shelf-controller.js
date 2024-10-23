@@ -12,6 +12,11 @@ exports.getMyShelf = async (req, res, next) => {
           include: {
             boardgame: true,
           },
+          orderBy: {
+            boardgame: {
+              name: "asc", // เรียงจากน้อยไปมาก (A-Z) หรือใช้ 'desc' ถ้าต้องการเรียงจากมากไปน้อย (Z-A)
+            },
+          },
         },
       },
     });
@@ -40,7 +45,7 @@ exports.updateStatus = async (req, res, next) => {
     if (findShelf.userId !== Number(id)) {
       return createError(401, "Cannot update from another user's shelf");
     }
-    
+
     const updateStatus = await prisma.shelfBoardgame.update({
       where: {
         shelfId_boardgameId: {
