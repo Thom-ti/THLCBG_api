@@ -48,7 +48,8 @@ const postData = [
   {
     title: "กฎการใช้งานเว็บไซต์",
     type: "ADMIN",
-    content: "1. ห้ามฆ่าสัตว์ 2. ห้ามลักทรัพย์ 3. ห้ามมีชู้ 4. ห้ามพูดปด 5. ห้ามดื่มเหล้า",
+    content:
+      "1. ห้ามฆ่าสัตว์ 2. ห้ามลักทรัพย์ 3. ห้ามมีชู้ 4. ห้ามพูดปด 5. ห้ามดื่มเหล้า",
     userId: 1,
   },
 ];
@@ -632,6 +633,105 @@ const boardgameData = [
     category: "STRATEGY",
     thaiLC: "Tower Tactic Games",
     description: "กลายเป็นผู้นำของการปฏิวัติอุตสาหกรรมในไทม์ไลน์ที่แตกต่างกัน",
+  },
+  {
+    name: "Wyrmspan",
+    thaiName: "ปีกมังกร",
+    boardgameImage:
+      "https://cf.geekdo-images.com/oXUkkh9uq3zBVWQ8mbgMfQ__imagepage/img/DaWOlDtxDRns4ibNr1_NYlicTw8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7947338.png",
+    minPlayer: 1,
+    maxPlayer: 5,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Siam Board Games",
+    description: "สร้างวิหารขนาดใหญ่สำหรับมังกรทุกรูปร่างและขนาด!",
+  },
+  {
+    name: "Sagrada",
+    thaiName: "ซากราดา",
+    boardgameImage:
+      "https://cf.geekdo-images.com/PZt3EAAGV3dFIVuwMR0AEw__imagepage/img/F8DS3hdZfVIcxVpPSZV7DMLrPJ4=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3525224.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 14,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Lanlalen",
+    description:
+      "ประดิษฐ์หน้าต่างกระจกสีที่สวยงามที่สุดโดยวางลูกเต๋าโปร่งใสหลากสีสันอย่างระมัดระวัง",
+  },
+  {
+    name: "Azul: Summer Pavilion",
+    thaiName: "พระราชวังฤดูร้อน",
+    boardgameImage: "https://cf.geekdo-images.com/843kZ6WR0HfyXWEybA6L7A__imagepage/img/mSBHURzdEuArNvhdQzHmsChf31k=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4930887.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 8,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description: "คุณคือช่างฝีมือที่กำลังสร้างสรรค์ลวดลายอันโดดเด่นภายในพระราชวังของกษัตริย์"
+  },
+  {
+    name: "Ultimate Railroads",
+    thaiName: "กำเนิดทางรถไฟเปลี่ยนโลก",
+    boardgameImage: "https://cf.geekdo-images.com/zwAQWL7YfL8kC5Bgp67soQ__imagepage/img/EQFYL4GsqMcuhGX6-EYWbPkOef8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6378170.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 12,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Lanlalen",
+    description: "สร้างทางรถไฟในรัสเซีย เยอรมนี สหรัฐอเมริกา และอื่น ๆ ในชุดสะสมขนาดใหญ่ชุดนี้"
+  },
+  {
+    name: "The Resistance: Avalon",
+    thaiName: "อวาลอน",
+    boardgameImage: "https://cf.geekdo-images.com/LPa6rsGcv8S0-OeNjCOAEQ__imagepage/img/3xVP5JSdSfFbo2c1nnZS5xxGhfI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1398895.jpg",
+    minPlayer: 5,
+    maxPlayer: 10,
+    age: 13,
+    type: "CORE",
+    category: "PARTY",
+    thaiLC: "Lanlalen",
+    description: "คุณจะไว้ใจใครได้บ้าง? เกมตัดช้อยส์ที่ดำเนินเรื่องภายในอาณาจักรในตำนานของกษัตริย์อาเธอร์"
+  },
+  {
+    name: "A Game of Thrones: The Board Game (Second Edition)",
+    thaiName: "เกมล่าบัลลังก์",
+    boardgameImage: "https://cf.geekdo-images.com/M_7UvwZvuxBVjxdadsa5AA__imagepage/img/AuKDe6Q4lyGdm6rTS2JUEXvhTbQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1077906.jpg",
+    minPlayer: 3,
+    maxPlayer: 6,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Siam Board Games",
+    description: "สร้างพันธมิตรและทำลายมัน! ขณะที่คุณมุ่งมั่นที่จะเป็นหนึ่งและพิชิตเวสเทอรอส"
+  },
+  {
+    name: "Modern Art",
+    thaiName: "ยอดนักประมูล",
+    boardgameImage: "https://cf.geekdo-images.com/wLto-xaabHwKQe_Bc4iD1Q__imagepage/img/zLttqNoD_8ukBx9b2boUAHWTMec=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3458036.png",
+    minPlayer: 3,
+    maxPlayer: 5,
+    age: 10,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "More Than a Game",
+    description: "การประมูลสี่ประเภทที่ท้าทายผู้เล่นในเกมการเก็งกำไรทางศิลปะคลาสสิกนี้"
+  },
+  {
+    name: "Dead of Winter: A Crossroads Game",
+    thaiName: "เหมันต์มรณะ",
+    boardgameImage: "https://cf.geekdo-images.com/g4mV4BH-ZrhMUVgil-yV1A__imagepage/img/CJ6erNGmKfFGhR6ZbxXbBI7XaoE=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3016500.jpg",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 13,
+    type: "CORE",
+    category: "THEMATIC",
+    thaiLC: "Siam Board Games",
+    description: "ขณะที่คุณดิ้นรนเพื่อให้ผู้รอดชีวิตมีชีวิตอยู่ คุณจะให้คุณค่ากับความต้องการแบบกลุ่มหรือแบบส่วนตัวอย่างไร?"
   },
   // {
   //   name: ,
