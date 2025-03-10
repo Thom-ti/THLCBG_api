@@ -1,7 +1,7 @@
 const { prisma } = require("../src/models");
 const bcrypt = require("bcryptjs");
 
-const hashedPassword = bcrypt.hashSync("123456", 10); // hash no async
+const hashedPassword = bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10); // hash no async
 
 const userData = [
   {
@@ -36,20 +36,20 @@ const postData = [
   {
     title: "Hello World!",
     type: "GENERAL",
-    content: "This is my first post!",
+    content: "This is the first post!",
     userId: 1,
   },
   {
     title: "Hello World!",
     type: "GENERAL",
-    content: "This is my second post!",
-    userId: 1,
+    content: "This is the second post!",
+    userId: 3,
   },
   {
     title: "กฎการใช้งานเว็บไซต์",
     type: "ADMIN",
     content:
-      "1. ห้ามฆ่าสัตว์ 2. ห้ามลักทรัพย์ 3. ห้ามมีชู้ 4. ห้ามพูดปด 5. ห้ามดื่มเหล้า",
+      "1. ห้ามเสนอข้อความหรือเนื้อหาอันเป็นการวิพากษ์วิจารณ์หรือพาดพิงสถาบันมหากษัตริย์และราชวงศ์ เป็นอันขาด 2. ห้ามเสนอข้อความหรือเนื้อหาที่ส่อไปในทางหยาบคาย ก้าวร้าว เกินกว่าที่บรรทัดฐานของสังคมจะยอมรับได้ 3. ห้ามเสนอข้อความหรือเนื้อหาที่ส่อไปในทาง ลามก อนาจาร รุนแรง อุจาด 4. ห้ามเสนอข้อความอันมีเจตนาใส่ความบุคคลอื่น ให้ได้รับการดูหมิ่นเกลียดชังจากบุคคลอื่น โดยไม่มีแหล่งที่มาของข้อมูลอ้างอิงที่ชัดเจน 5. ห้ามเสนอข้อความอันเป็นการท้าทาย ชักชวน โดยมีเจตนาก่อให้เกิดการทะเลาะวิวาท หรือก่อให้เกิดความวุ่นวายขึ้น โดยมูลแห่งความขัดแย้งดังกล่าว ไม่ใช่การแสดงความคิดเห็นโดยเสรีเช่นวิญญูชน พึงกระทำ 6. ห้ามเสนอข้อความกล่าวโจมตี หรือวิพากษ์วิจารณ์ในทางเสียหายต่อ ศาสนา หรือคำสอนของศาสนาใด ๆ ทุกศาสนา 7. ห้ามใช้นามแฝงอันเป็นชื่อจริงของผู้อื่น โดยมีเจตนาทำให้สาธารณชนเข้าใจผิด และเจ้าของชื่อผู้นั้นได้รับความเสียหาย หรือเสื่อมเสียชื่อเสียง 8. ห้ามเสนอข้อความอันอาจเป็นเหตุให้เกิดความขัดแย้งขึ้นในระหว่างสถาบันการศึกษา หรือระหว่างสังคมใด ๆ 9. ห้ามเสนอข้อมูลส่วนตัวของผู้อื่น เช่น อีเมลหรือหมายเลขโทรศัพท์ โดยมีเจตนากลั่นแกล้งให้ผู้อื่นได้รับความเดือดร้อนรำคาญ โดยเฉพาะอย่างยิ่งกรณีเบอร์โทรศัพท์ เนื่องจากเป็นข้อมูลที่มีโอกาสผิดพลาดคลาดเคลื่อน และเป็นสื่อที่สามารถใช้ในการกลั่นแกล้งได้ง่ายกว่าชนิดอื่น 10. ห้ามเสนอข้อความหรือเนื้อหาอันเป็นสิ่งที่เกี่ยวข้องกับสิ่งผิดกฎหมายหรือศีลธรรมอันดีของสังคม",
     userId: 1,
   },
 ];
@@ -111,20 +111,6 @@ const boardgameData = [
       "กลุ่มพันธมิตรและกลุ่มประชาชนเสรีปะทะกับซารอนเพื่อชะตากรรมของมิดเดิลเอิร์ธ",
   },
   {
-    name: "Gloomhaven: Jaws of the Lion",
-    thaiName: "กลูมเฮเวน: คมเขี้ยวราชสีห์",
-    boardgameImage:
-      "https://cf.geekdo-images.com/_HhIdavYW-hid20Iq3hhmg__imagepage/img/JUEcmeR5Cm5haFjoG5f_Uv8Zlws=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5055631.jpg",
-    minPlayer: 1,
-    maxPlayer: 4,
-    age: 14,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Siam Board Games",
-    description:
-      "เอาชนะมอนสเตอร์ด้วยการเล่นไพ่เชิงกลยุทธ์ในแคมเปญของ Gloomhaven ที่มีถึง 25 สถานการณ์",
-  },
-  {
     name: "Spirit Island",
     thaiName: "เกาะภูติพิทักษ์",
     boardgameImage:
@@ -139,6 +125,20 @@ const boardgameData = [
       "เหล่าภูติพิทักษ์ของเกาะอันไกลโพ้น ปกป้องเกาะจากเหล่าผู้รุกรานจากโลกภายนอก",
   },
   {
+    name: "Gloomhaven: Jaws of the Lion",
+    thaiName: "กลูมเฮเวน: คมเขี้ยวราชสีห์",
+    boardgameImage:
+      "https://cf.geekdo-images.com/_HhIdavYW-hid20Iq3hhmg__imagepage/img/JUEcmeR5Cm5haFjoG5f_Uv8Zlws=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5055631.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Siam Board Games",
+    description:
+      "เอาชนะมอนสเตอร์ด้วยการเล่นไพ่เชิงกลยุทธ์ในแคมเปญของ Gloomhaven ที่มีถึง 25 สถานการณ์",
+  },
+  {
     name: "7 Wonders Duel",
     boardgameImage:
       "https://cf.geekdo-images.com/zdagMskTF7wJBPjX74XsRw__imagepage/img/HdJ4d4O1P89V4UIhZnL3zoYnjow=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2576399.jpg",
@@ -149,20 +149,6 @@ const boardgameData = [
     category: "STRATEGY",
     thaiLC: "WDG Distributor",
     description: "สร้างเมืองและสิ่งมหัศจรรย์ทั้ง 7 แข่งกัน",
-  },
-  {
-    name: "Arkham Horror: The Card Game",
-    thaiName: "อาถรรพ์แห่งอาร์คัม เดอะการ์ดเกม",
-    boardgameImage:
-      "https://cf.geekdo-images.com/B5F5ulz0UivNgrI9Ky0euA__imagepage/img/tgpLRvv6AIsClnegErNpAoieeMo=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3122349.jpg",
-    minPlayer: 1,
-    maxPlayer: 2,
-    age: 14,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Tower Tactic Games",
-    description:
-      "ออกสำรวจและไขปริศนาแห่งเมืองอาร์คัม พร้อมกับเผชิญหน้าสิ่งลี้ลับที่คืบคลานในความมืด",
   },
   {
     name: "Lost Ruins of Arnak",
@@ -179,18 +165,18 @@ const boardgameData = [
       "ขึ้นสำรวจเกาะกลางสมุทรเพื่อเก็บเกี่ยวสมบัติล้ำค่า และค้นพบนครสาบสูญแห่งอาร์นัค",
   },
   {
-    name: "Wingspan",
-    thaiName: "ปีกปักษา",
+    name: "Root",
+    thaiName: "เกมชิงอธิปไตยแห่งวูดแลนด์ สู่อำนาจและความชอบธรรม",
     boardgameImage:
-      "https://cf.geekdo-images.com/yLZJCVLlIx4c7eJEWUNJ7w__imagepage/img/uIjeoKgHMcRtzRSR4MoUYl3nXxs=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4458123.jpg",
-    minPlayer: 1,
-    maxPlayer: 5,
+      "https://cf.geekdo-images.com/JUAUWaVUzeBgzirhZNmHHw__imagepage/img/ZF-dta5ffawuKAkAt2LB-QTIv5M=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4254509.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
     age: 10,
     type: "CORE",
-    category: "FAMILY",
-    thaiLC: "Siam Board Games",
+    category: "STRATEGY",
+    thaiLC: "Tower Tactic Games",
     description:
-      "สร้างสวนแห่งปักษาอันสวยงามขึ้นมาเพื่อดึงดูดปักษีทั้งหลายเข้ามาอยู่อาศัยในสวนของเรา",
+      "ตัดสินชะตากรรมของป่า ในขณะที่กลุ่มคนในป่าต่อสู้เพื่อเป้าหมายที่แตกต่างกัน",
   },
   {
     name: "Terra Mystica",
@@ -207,18 +193,18 @@ const boardgameData = [
       "บัญชาชนเผ่ามหัศจรรย์ ขยายอิทธิพลและพื้นที่ปกครอง เข้าร่วมลิทธิเพื่อรวบรวมความศรัทธา",
   },
   {
-    name: "Root",
-    thaiName: "เกมชิงอธิปไตยแห่งวูดแลนด์ สู่อำนาจและความชอบธรรม",
+    name: "Wingspan",
+    thaiName: "ปีกปักษา",
     boardgameImage:
-      "https://cf.geekdo-images.com/JUAUWaVUzeBgzirhZNmHHw__imagepage/img/ZF-dta5ffawuKAkAt2LB-QTIv5M=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4254509.jpg",
-    minPlayer: 2,
-    maxPlayer: 4,
+      "https://cf.geekdo-images.com/yLZJCVLlIx4c7eJEWUNJ7w__imagepage/img/uIjeoKgHMcRtzRSR4MoUYl3nXxs=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4458123.jpg",
+    minPlayer: 1,
+    maxPlayer: 5,
     age: 10,
     type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Tower Tactic Games",
+    category: "FAMILY",
+    thaiLC: "Siam Board Games",
     description:
-      "ตัดสินชะตากรรมของป่า ในขณะที่กลุ่มคนในป่าต่อสู้เพื่อเป้าหมายที่แตกต่างกัน",
+      "สร้างสวนแห่งปักษาอันสวยงามขึ้นมาเพื่อดึงดูดปักษีทั้งหลายเข้ามาอยู่อาศัยในสวนของเรา",
   },
   {
     name: "Orléans",
@@ -247,6 +233,19 @@ const boardgameData = [
     thaiLC: "More Than a Game",
     description:
       "รวบรวมทรัพยากรเพื่อพัฒนาหมู่บ้านที่กลมกลืนกับสัตว์และโครงสร้างในป่า",
+  },
+  {
+    name: "Sky Team",
+    thaiName: "ปฏิการเหนือน่านฟ้า",
+    boardgameImage:
+      "https://cf.geekdo-images.com/uXMeQzNenHb3zK7Hoa6b2w__imagepage/img/pGD_ZWkXcMk6JsTpFwwBVYk-sdk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7398904.jpg",
+    minPlayer: 2,
+    maxPlayer: 2,
+    age: 12,
+    type: "CORE",
+    category: "THEMATIC",
+    thaiLC: "Tower Tactic Games",
+    description: "นักบินและผู้ช่วยนักบินทำงานร่วมกันเพื่อลงจอดเครื่องบิน",
   },
   {
     name: "Viticulture Essential Edition",
@@ -291,6 +290,20 @@ const boardgameData = [
       "สร้างระบบนิเวศที่กลมกลืนที่สุดในขณะที่คุณแก้ไขปริศนาเกี่ยวกับถิ่นที่อยู่อาศัยและสัตว์ป่าร่วมกัน",
   },
   {
+    name: "The Lord of the Rings: Duel for Middle-earth",
+    thaiName: "ลอร์ดออฟเดอะริงส์: มหาสงครามชิงพิภพ",
+    boardgameImage:
+      "https://cf.geekdo-images.com/EybxJlUc9rz7F7HVFLqsdw__original/img/Ts4M5eOW38r2oTvJmkx0uwNodv4=/0x0/filters:format(jpeg)/pic8378939.jpg",
+    minPlayer: 2,
+    maxPlayer: 2,
+    age: 10,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "WDG Distributor",
+    description:
+      "สวมบทบาทเป็นฝ่ายคณะพันธมิตรแห่งแหวนหรือฝ่ายเซารอน และกำหนดชะตากรรมของมิดเดิลเอิร์ธ",
+  },
+  {
     name: "Mansions of Madness: Second Edition",
     thaiName: "คฤหาสน์วิปลาส",
     boardgameImage:
@@ -303,19 +316,6 @@ const boardgameData = [
     thaiLC: "Siam Board Games",
     description:
       "ไขปริศนาในอาร์คัมพร้อมทีมสืบสวนของคุณในเกมที่ควบคุมด้วยแอพนี้",
-  },
-  {
-    name: "Sky Team",
-    thaiName: "ปฏิการเหนือน่านฟ้า",
-    boardgameImage:
-      "https://cf.geekdo-images.com/uXMeQzNenHb3zK7Hoa6b2w__imagepage/img/pGD_ZWkXcMk6JsTpFwwBVYk-sdk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7398904.jpg",
-    minPlayer: 2,
-    maxPlayer: 2,
-    age: 12,
-    type: "CORE",
-    category: "THEMATIC",
-    thaiLC: "Tower Tactic Games",
-    description: "นักบินและผู้ช่วยนักบินทำงานร่วมกันเพื่อลงจอดเครื่องบิน",
   },
   {
     name: "Power Grid",
@@ -332,7 +332,7 @@ const boardgameData = [
       "ประมูล สร้างเครือข่าย และจัดการทรัพยากรในการแข่งขันเพื่อจ่ายพลังงานให้กับเมืองต่างๆ ให้ได้มากที่สุด",
   },
   {
-    name: "Agricola",
+    name: "Agricola (Revised Edition)",
     thaiName: "อากริโคล่า",
     boardgameImage:
       "https://cf.geekdo-images.com/YCGWJMFwOI5efji2RJ2mSw__imagepage/img/phEZ4Gus0VvAVuT2BVzeISa90Pw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8093340.jpg",
@@ -359,20 +359,6 @@ const boardgameData = [
       "ประดับผนังพระราชวังของคุณอย่างมีศิลปะด้วยการร่างกระเบื้องที่สวยงามที่สุด",
   },
   {
-    name: "7 Wonders",
-    thaiName: "7 สิ่งมหัศจรรย์",
-    boardgameImage:
-      "https://cf.geekdo-images.com/35h9Za_JvMMMtx_92kT0Jg__imagepage/img/WKlTys0Dc3F6x9r05Fwyvs82tz4=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7149798.jpg",
-    minPlayer: 2,
-    maxPlayer: 7,
-    age: 10,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Siam Board Games",
-    description:
-      "ร่างการ์ดเพื่อพัฒนาอารยธรรมโบราณของคุณและสร้างสิ่งมหัศจรรย์ของโลก",
-  },
-  {
     name: "Revive",
     thaiName: "ปฏิบัติการฟื้นคืนพิภพ",
     boardgameImage:
@@ -384,6 +370,47 @@ const boardgameData = [
     category: "STRATEGY",
     thaiLC: "Quest",
     description: "ฟื้นคืนอารยธรรม 5,000 ปีหลังการล่มสลายของมนุษยชาติ",
+  },
+  {
+    name: "The White Castle",
+    thaiName: "ปราสาทกระสาขาว",
+    boardgameImage:
+      "https://cf.geekdo-images.com/qXT1U-nFh9PE8ujfdmI7dA__imagepage/img/zfTFhCz8g6OeJi8V1HkDpaDbSzw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7754663.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 12,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "ขึ้นเป็นตระกูลที่มีอิทธิพลมากที่สุดในฐานที่มั่นฮิเมจิของญี่ปุ่น",
+  },
+  {
+    name: "Harmonies",
+    thaiName: "ฮาร์โมนี่",
+    boardgameImage:
+      "https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__imagepage/img/eEOGt-VTMXD5zwTzFO9M4Lg7pkI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8026369.png",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 10,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "สร้างภูมิทัศน์และที่อยู่อาศัยของคุณเองเพื่อเชิญชวนเหล่าสัตว์เข้ามา",
+  },
+  {
+    name: "SCOUT",
+    boardgameImage:
+      "https://cf.geekdo-images.com/cf0xxkevbwTGF3VUZymKjg__imagepage/img/c1nUYPglSR9Br_zPKasdnwi4q78=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6398727.png",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 9,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "แข่งกันแย่งชิงนักแสดงของอีกฝ่าย เพื่อจัดการแสดงละครสัตว์ที่โดดเด่น",
   },
   {
     name: "Wingspan Asia",
@@ -400,6 +427,20 @@ const boardgameData = [
       "เดินทางไปเอเชียเพื่อค้นพบนกชนิดใหม่ในเขตอนุรักษ์สัตว์ป่าของคุณ",
   },
   {
+    name: "7 Wonders",
+    thaiName: "7 สิ่งมหัศจรรย์",
+    boardgameImage:
+      "https://cf.geekdo-images.com/35h9Za_JvMMMtx_92kT0Jg__imagepage/img/WKlTys0Dc3F6x9r05Fwyvs82tz4=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7149798.jpg",
+    minPlayer: 2,
+    maxPlayer: 7,
+    age: 10,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Siam Board Games",
+    description:
+      "ร่างการ์ดเพื่อพัฒนาอารยธรรมโบราณของคุณและสร้างสิ่งมหัศจรรย์ของโลก",
+  },
+  {
     name: "Decrypto",
     thaiName: "รหัสลับอัจฉริยะ",
     boardgameImage:
@@ -412,19 +453,6 @@ const boardgameData = [
     thaiLC: "WDG Distributor",
     description:
       "ถอดรหัสของฝ่ายตรงข้ามก่อนที่พวกเขาจะถอดรหัสของคุณ อย่าให้ถูกจับได้",
-  },
-  {
-    name: "SCOUT",
-    boardgameImage:
-      "https://cf.geekdo-images.com/cf0xxkevbwTGF3VUZymKjg__imagepage/img/c1nUYPglSR9Br_zPKasdnwi4q78=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6398727.png",
-    minPlayer: 2,
-    maxPlayer: 5,
-    age: 9,
-    type: "CORE",
-    category: "FAMILY",
-    thaiLC: "Tower Tactic Games",
-    description:
-      "แข่งกันแย่งชิงนักแสดงของอีกฝ่าย เพื่อจัดการแสดงละครสัตว์ที่โดดเด่น",
   },
   {
     name: "Architects of the West Kingdom",
@@ -454,20 +482,6 @@ const boardgameData = [
     description: "วิ่งแข่งขันผ่านป่าทึบในอเมริกาใต้เพื่อตามหาเมืองทองคำในตำนาน",
   },
   {
-    name: "The White Castle",
-    thaiName: "ปราสาทกระสาขาว",
-    boardgameImage:
-      "https://cf.geekdo-images.com/qXT1U-nFh9PE8ujfdmI7dA__imagepage/img/zfTFhCz8g6OeJi8V1HkDpaDbSzw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7754663.jpg",
-    minPlayer: 1,
-    maxPlayer: 4,
-    age: 12,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Tower Tactic Games",
-    description:
-      "ขึ้นเป็นตระกูลที่มีอิทธิพลมากที่สุดในฐานที่มั่นฮิเมจิของญี่ปุ่น",
-  },
-  {
     name: "Patchwork",
     thaiName: "เย็บปักถักร้อย",
     boardgameImage:
@@ -480,6 +494,33 @@ const boardgameData = [
     thaiLC: "Tower Tactic Games",
     description:
       "ต่อชิ้นผ้าเข้าด้วยกันและไม่เว้นช่องว่าง เพื่อเป็นผู้เชี่ยวชาญด้านกระดุม",
+  },
+  {
+    name: "Ultimate Railroads",
+    thaiName: "กำเนิดทางรถไฟเปลี่ยนโลก",
+    boardgameImage:
+      "https://cf.geekdo-images.com/zwAQWL7YfL8kC5Bgp67soQ__imagepage/img/EQFYL4GsqMcuhGX6-EYWbPkOef8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6378170.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 12,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Lanlalen",
+    description:
+      "สร้างทางรถไฟในรัสเซีย เยอรมนี สหรัฐอเมริกา และอื่น ๆ ในชุดสะสมขนาดใหญ่ชุดนี้",
+  },
+  {
+    name: "Wyrmspan",
+    thaiName: "ปีกมังกร",
+    boardgameImage:
+      "https://cf.geekdo-images.com/oXUkkh9uq3zBVWQ8mbgMfQ__imagepage/img/DaWOlDtxDRns4ibNr1_NYlicTw8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7947338.png",
+    minPlayer: 1,
+    maxPlayer: 5,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Siam Board Games",
+    description: "สร้างวิหารขนาดใหญ่สำหรับมังกรทุกรูปร่างและขนาด!",
   },
   {
     name: "Codenames",
@@ -524,6 +565,19 @@ const boardgameData = [
       "สำรวจดินแดนในนามของราชินีและวาดแผนที่ที่ดีที่สุดเพื่อรับความโปรดปรานจากองค์ราชินี",
   },
   {
+    name: "Nucleum",
+    thaiName: "นิวเคลียม",
+    boardgameImage:
+      "https://cf.geekdo-images.com/fIVUaMvbfy6GCOgfxt7xaw__imagepage/img/pGB5F9H0ZHo_i027V2XSdx1r8og=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7647168.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Tower Tactic Games",
+    description: "กลายเป็นผู้นำของการปฏิวัติอุตสาหกรรมในไทม์ไลน์ที่แตกต่างกัน",
+  },
+  {
     name: "It's a Wonderful World",
     thaiName: "สร้างโลกมหัศจรรย์",
     boardgameImage:
@@ -536,20 +590,6 @@ const boardgameData = [
     thaiLC: "DICE CUP",
     description:
       "จัดระเบียบโลกดิสโทเปียที่ 'สมบูรณ์แบบ' ให้กับตัวเอง ทำโครงการให้เสร็จและจัดสรรทรัพยากรให้เต็มที่",
-  },
-  {
-    name: "Praga Caput Regni",
-    thaiName: "ปราก มหานครแห่งจักรวรรดิ",
-    boardgameImage:
-      "https://cf.geekdo-images.com/aUPeXVwc40xrgud2XeZwyA__imagepage/img/ZZJm8Ip3ANP5TUcOEiZKs5Sti9k=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5671087.png",
-    minPlayer: 1,
-    maxPlayer: 4,
-    age: 14,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Undercut Games",
-    description:
-      "ชาวเมืองผู้มั่งมีในยุคกลางของปรากจัดโครงการก่อสร้างเพื่อให้ได้รับความโปรดปรานจากกษัตริย์",
   },
   {
     name: "Ticket to Ride: Europe",
@@ -580,6 +620,20 @@ const boardgameData = [
       "ชนเผ่าในยุคก่อนประวัติศาสตร์ต้องดิ้นรนเพื่อเอาชีวิตรอดและปรับตัว เผ่าใดจะก้าวขึ้นสู่จุดสูงสุด?",
   },
   {
+    name: "Praga Caput Regni",
+    thaiName: "ปราก มหานครแห่งจักรวรรดิ",
+    boardgameImage:
+      "https://cf.geekdo-images.com/aUPeXVwc40xrgud2XeZwyA__imagepage/img/ZZJm8Ip3ANP5TUcOEiZKs5Sti9k=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5671087.png",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Undercut Games",
+    description:
+      "ชาวเมืองผู้มั่งมีในยุคกลางของปรากจัดโครงการก่อสร้างเพื่อให้ได้รับความโปรดปรานจากกษัตริย์",
+  },
+  {
     name: "Unmatched: Cobble & Fog",
     thaiName: "สัประยุทธสุดขั้ว ภาคคืนหมอกและตรอกหิน",
     boardgameImage:
@@ -608,44 +662,18 @@ const boardgameData = [
       "ค้าขายสินค้าเพื่อเป็นพ่อค้าที่ร่ำรวยที่สุดในเกมสั้น ๆ สำหรับสองคนนี้",
   },
   {
-    name: "Harmonies",
-    thaiName: "ฮาร์โมนี่",
+    name: "Arkham Horror: The Card Game (Revised Edition)",
+    thaiName: "อาถรรพ์แห่งอาร์คัม เดอะการ์ดเกม",
     boardgameImage:
-      "https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__imagepage/img/eEOGt-VTMXD5zwTzFO9M4Lg7pkI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8026369.png",
+      "https://cf.geekdo-images.com/RdCWCXPnBGSxoOhk5Hkq_g__imagepage/img/IjAnsFhA0onPRgYnLLsRG3PZHcI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6530423.jpg",
     minPlayer: 1,
     maxPlayer: 4,
-    age: 10,
+    age: 14,
     type: "CORE",
-    category: "FAMILY",
+    category: "STRATEGY",
     thaiLC: "Tower Tactic Games",
     description:
-      "สร้างภูมิทัศน์และที่อยู่อาศัยของคุณเองเพื่อเชิญชวนเหล่าสัตว์เข้ามา",
-  },
-  {
-    name: "Nucleum",
-    thaiName: "นิวเคลียม",
-    boardgameImage:
-      "https://cf.geekdo-images.com/fIVUaMvbfy6GCOgfxt7xaw__imagepage/img/pGB5F9H0ZHo_i027V2XSdx1r8og=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7647168.jpg",
-    minPlayer: 1,
-    maxPlayer: 4,
-    age: 14,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Tower Tactic Games",
-    description: "กลายเป็นผู้นำของการปฏิวัติอุตสาหกรรมในไทม์ไลน์ที่แตกต่างกัน",
-  },
-  {
-    name: "Wyrmspan",
-    thaiName: "ปีกมังกร",
-    boardgameImage:
-      "https://cf.geekdo-images.com/oXUkkh9uq3zBVWQ8mbgMfQ__imagepage/img/DaWOlDtxDRns4ibNr1_NYlicTw8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7947338.png",
-    minPlayer: 1,
-    maxPlayer: 5,
-    age: 14,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Siam Board Games",
-    description: "สร้างวิหารขนาดใหญ่สำหรับมังกรทุกรูปร่างและขนาด!",
+      "ออกสำรวจและไขปริศนาแห่งเมืองอาร์คัม พร้อมกับเผชิญหน้าสิ่งลี้ลับที่คืบคลานในความมืด",
   },
   {
     name: "Sagrada",
@@ -662,76 +690,303 @@ const boardgameData = [
       "ประดิษฐ์หน้าต่างกระจกสีที่สวยงามที่สุดโดยวางลูกเต๋าโปร่งใสหลากสีสันอย่างระมัดระวัง",
   },
   {
-    name: "Azul: Summer Pavilion",
-    thaiName: "พระราชวังฤดูร้อน",
-    boardgameImage: "https://cf.geekdo-images.com/843kZ6WR0HfyXWEybA6L7A__imagepage/img/mSBHURzdEuArNvhdQzHmsChf31k=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4930887.jpg",
-    minPlayer: 2,
-    maxPlayer: 4,
-    age: 8,
-    type: "CORE",
-    category: "FAMILY",
-    thaiLC: "Tower Tactic Games",
-    description: "คุณคือช่างฝีมือที่กำลังสร้างสรรค์ลวดลายอันโดดเด่นภายในพระราชวังของกษัตริย์"
-  },
-  {
-    name: "Ultimate Railroads",
-    thaiName: "กำเนิดทางรถไฟเปลี่ยนโลก",
-    boardgameImage: "https://cf.geekdo-images.com/zwAQWL7YfL8kC5Bgp67soQ__imagepage/img/EQFYL4GsqMcuhGX6-EYWbPkOef8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6378170.jpg",
-    minPlayer: 1,
-    maxPlayer: 4,
-    age: 12,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Lanlalen",
-    description: "สร้างทางรถไฟในรัสเซีย เยอรมนี สหรัฐอเมริกา และอื่น ๆ ในชุดสะสมขนาดใหญ่ชุดนี้"
-  },
-  {
-    name: "The Resistance: Avalon",
-    thaiName: "อวาลอน",
-    boardgameImage: "https://cf.geekdo-images.com/LPa6rsGcv8S0-OeNjCOAEQ__imagepage/img/3xVP5JSdSfFbo2c1nnZS5xxGhfI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1398895.jpg",
-    minPlayer: 5,
-    maxPlayer: 10,
-    age: 13,
-    type: "CORE",
-    category: "PARTY",
-    thaiLC: "Lanlalen",
-    description: "คุณจะไว้ใจใครได้บ้าง? เกมตัดช้อยส์ที่ดำเนินเรื่องภายในอาณาจักรในตำนานของกษัตริย์อาเธอร์"
-  },
-  {
-    name: "A Game of Thrones: The Board Game (Second Edition)",
-    thaiName: "เกมล่าบัลลังก์",
-    boardgameImage: "https://cf.geekdo-images.com/M_7UvwZvuxBVjxdadsa5AA__imagepage/img/AuKDe6Q4lyGdm6rTS2JUEXvhTbQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1077906.jpg",
-    minPlayer: 3,
-    maxPlayer: 6,
-    age: 14,
-    type: "CORE",
-    category: "STRATEGY",
-    thaiLC: "Siam Board Games",
-    description: "สร้างพันธมิตรและทำลายมัน! ขณะที่คุณมุ่งมั่นที่จะเป็นหนึ่งและพิชิตเวสเทอรอส"
-  },
-  {
     name: "Modern Art",
     thaiName: "ยอดนักประมูล",
-    boardgameImage: "https://cf.geekdo-images.com/wLto-xaabHwKQe_Bc4iD1Q__imagepage/img/zLttqNoD_8ukBx9b2boUAHWTMec=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3458036.png",
+    boardgameImage:
+      "https://cf.geekdo-images.com/wLto-xaabHwKQe_Bc4iD1Q__imagepage/img/zLttqNoD_8ukBx9b2boUAHWTMec=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3458036.png",
     minPlayer: 3,
     maxPlayer: 5,
     age: 10,
     type: "CORE",
     category: "STRATEGY",
     thaiLC: "More Than a Game",
-    description: "การประมูลสี่ประเภทที่ท้าทายผู้เล่นในเกมการเก็งกำไรทางศิลปะคลาสสิกนี้"
+    description:
+      "การประมูลสี่ประเภทที่ท้าทายผู้เล่นในเกมการเก็งกำไรทางศิลปะคลาสสิกนี้",
+  },
+  {
+    name: "The Resistance: Avalon",
+    thaiName: "อวาลอน",
+    boardgameImage:
+      "https://cf.geekdo-images.com/LPa6rsGcv8S0-OeNjCOAEQ__imagepage/img/3xVP5JSdSfFbo2c1nnZS5xxGhfI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1398895.jpg",
+    minPlayer: 5,
+    maxPlayer: 10,
+    age: 13,
+    type: "CORE",
+    category: "PARTY",
+    thaiLC: "Lanlalen",
+    description:
+      "คุณจะไว้ใจใครได้บ้าง? เกมตัดช้อยส์ที่ดำเนินเรื่องภายในอาณาจักรในตำนานของกษัตริย์อาเธอร์",
+  },
+  {
+    name: "Forest Shuffle",
+    thaiName: "ฟอเรสต์ ชัฟเฟิ่ล",
+    boardgameImage:
+      "https://cf.geekdo-images.com/08bC8NviSTNc4Zvur4pueA__imagepage/img/2L2NC1klY9Hiwa0xqImGgLNzrTM=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7578350.jpg",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 10,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "WDG Distributor",
+    description: "รวบรวมต้นไม้ที่มีคะแนนมากที่สุดและดึงดูดสัตว์ป่ามา",
+  },
+  {
+    name: "Azul: Summer Pavilion",
+    thaiName: "พระราชวังฤดูร้อน",
+    boardgameImage:
+      "https://cf.geekdo-images.com/843kZ6WR0HfyXWEybA6L7A__imagepage/img/mSBHURzdEuArNvhdQzHmsChf31k=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4930887.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 8,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "คุณคือช่างฝีมือที่กำลังสร้างสรรค์ลวดลายอันโดดเด่นภายในพระราชวังของกษัตริย์",
+  },
+  {
+    name: "A Game of Thrones: The Board Game (Second Edition)",
+    thaiName: "เกมล่าบัลลังก์",
+    boardgameImage:
+      "https://cf.geekdo-images.com/M_7UvwZvuxBVjxdadsa5AA__imagepage/img/AuKDe6Q4lyGdm6rTS2JUEXvhTbQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1077906.jpg",
+    minPlayer: 3,
+    maxPlayer: 6,
+    age: 14,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Siam Board Games",
+    description:
+      "สร้างพันธมิตรและทำลายมัน! ขณะที่คุณมุ่งมั่นที่จะเป็นหนึ่งและพิชิตเวสเทอรอส",
+  },
+  {
+    name: "Carcassonne",
+    thaiName: "การ์กาซอน",
+    boardgameImage:
+      "https://cf.geekdo-images.com/okM0dq_bEXnbyQTOvHfwRA__imagepagezoom/img/Uot8PDJpJKZ7asDoB9Pw3zb3jnc=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic6544250.png",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 7,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Lanlalen",
+    description:
+      "สร้างภูมิทัศน์ยุคกลางของฝรั่งเศสซึ่งประกอบด้วยบ้านเมือง วิหารอาราม และฟาร์มไร่",
+  },
+  {
+    name: "Splendor",
+    thaiName: "เกมค้าเพชร",
+    boardgameImage:
+      "https://cf.geekdo-images.com/vNFe4JkhKAERzi4T0Ntwpw__imagepage/img/JXnPzdgTeDkRrxESA86gnCw4Zws=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8234167.png",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 10,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Siam Board Games",
+    description:
+      "สวมบทเป็นพ่อค้าในยุคฟื้นฟูศิลปวิทยา แข่งขันกันเพื่อแย่งชิงอัญมณี ได้มาซึ่งทรัพย์สิน และเอาใจขุนนาง",
   },
   {
     name: "Dead of Winter: A Crossroads Game",
     thaiName: "เหมันต์มรณะ",
-    boardgameImage: "https://cf.geekdo-images.com/g4mV4BH-ZrhMUVgil-yV1A__imagepage/img/CJ6erNGmKfFGhR6ZbxXbBI7XaoE=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3016500.jpg",
+    boardgameImage:
+      "https://cf.geekdo-images.com/g4mV4BH-ZrhMUVgil-yV1A__imagepage/img/CJ6erNGmKfFGhR6ZbxXbBI7XaoE=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3016500.jpg",
     minPlayer: 2,
     maxPlayer: 5,
     age: 13,
     type: "CORE",
     category: "THEMATIC",
     thaiLC: "Siam Board Games",
-    description: "ขณะที่คุณดิ้นรนเพื่อให้ผู้รอดชีวิตมีชีวิตอยู่ คุณจะให้คุณค่ากับความต้องการแบบกลุ่มหรือแบบส่วนตัวอย่างไร?"
+    description:
+      "ขณะที่คุณดิ้นรนเพื่อให้ผู้รอดชีวิตมีชีวิตอยู่ คุณจะให้คุณค่ากับความต้องการแบบกลุ่มหรือแบบส่วนตัวอย่างไร?",
+  },
+  {
+    name: "Ticket to Ride",
+    thaiName: "เกมต่อรถไฟ",
+    boardgameImage:
+      "https://cf.geekdo-images.com/ZWJg0dCdrWHxVnc0eFXK8w__imagepage/img/FcSGmLeIStNfb0l_qKSuOyz-rHY=/fit-in/900x600/filters:no_upscale():strip_icc()/pic38668.jpg",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 8,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Siam Board Games",
+    description:
+      "สร้างทางรถไฟของคุณข้ามอเมริกาเหนือเพื่อเชื่อมต่อเมืองต่าง ๆ และผลิตตั๋วให้เสร็จสมบูรณ์",
+  },
+  {
+    name: "Calico",
+    thaiName: "คาลิโก้",
+    boardgameImage:
+      "https://cf.geekdo-images.com/qGkU6XsF1448F_A4P8TY5Q__imagepage/img/bYx0eGf8Mf6JOKYAuz2axP2K72U=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8124431.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 10,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "DICE CUP",
+    description: "เย็บผ้าห่ม เก็บกระดุม ล่อแมว!",
+  },
+  {
+    name: "Cyclades",
+    thaiName: "สงครามมหาเทพโอลิมปัส",
+    boardgameImage:
+      "https://cf.geekdo-images.com/6QbaJOS8acWkJ6gSYI0KaQ__imagepage/img/nsZYZovWCEFL3MsohH7GWycMmno=/fit-in/900x600/filters:no_upscale():strip_icc()/pic584779.jpg",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 13,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Tower Tactic Games",
+    description: "แข่งขันกันประมูลเพื่อเอาใจทวยเทพ และแย่งชิงพื้นที่ครอบครอง",
+  },
+  {
+    name: "Camel Up (Second Edition)",
+    boardgameImage:
+      "https://cf.geekdo-images.com/qnR2V3YsW963_JaVznBjsw__imagepage/img/MQFGpkRRlGiCxBmdP16-MT7Gmbo=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8584959.jpg",
+    minPlayer: 3,
+    maxPlayer: 8,
+    age: 8,
+    type: "CORE",
+    category: "PARTY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "วางเดิมพันว่าอูฐตัวไหนจะชนะเป็นอันดับแรก และการวิ่งสุดอลหม่านที่อูฐขี่ซ้อนกันได้ พร้อมอุปสรรคขัดขวางการวิ่งในสนามแข่ง",
+  },
+  {
+    name: "Century: Golem Edition",
+    boardgameImage:
+      "https://cf.geekdo-images.com/1bihoShOuqaCuZJXB3Q2gQ__imagepage/img/kzKg1kM2QIHzqG80smivWExOtPQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3936124.jpg",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 8,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "คว้าคริสตัลอันมีค่าและสังเคราะห์มันเพื่อสร้างโกเล็มอันน่าอัศจรรย์",
+  },
+  {
+    name: "Unmatched: Battle of Legends, Volume One",
+    thaiName: "สัประยุทธ์สุดขั้ว: ภาคสมรภูมิแห่งตำนาน ชุดที่ 1",
+    boardgameImage:
+      "https://cf.geekdo-images.com/4AlLbprNustr9G7pbkGRuw__imagepage/img/dU9nyqzF1TBO7j2eBeJOB_Jkr5k=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4621579.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 9,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "DICE CUP",
+    description:
+      "วีรบุรุษและเหล่าร้ายในตำนาน (พร้อมสหายร่วมอุดมการณ์) ต่อสู้กันจนถึงชีวิต",
+  },
+  {
+    name: "Deception: Murder in Hong Kong",
+    thaiName: "แฟ้มคดีปริศนา (CS Files)",
+    boardgameImage:
+      "https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__imagepage/img/C6vLzxqHIAtA39Owy2erCo9x9ic=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3033330.jpg",
+    minPlayer: 4,
+    maxPlayer: 12,
+    age: 14,
+    type: "CORE",
+    category: "PARTY",
+    thaiLC: "DICE CUP",
+    description:
+      "ตีความหลักฐานทางนิติเวชเพื่อคลี่คลายคดีฆาตกรรม ระวังไว้ คนร้ายอยู่ในหมู่พวกเรานี่แหละ!",
+  },
+  {
+    name: "MicroMacro: Crime City",
+    thaiName: "เมืองอาชญากร นครย่อส่วน",
+    boardgameImage:
+      "https://cf.geekdo-images.com/1M-1d6fr3U9t670MCVOTeg__imagepage/img/ONEG4bYSuDz3rKQsd5mtaa3Z188=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5896816.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 12,
+    type: "CORE",
+    category: "FAMILY",
+    thaiLC: "Siam Board Games",
+    description: "ค้นหาเบาะแสจุดเล็ก ๆ น้อย ๆ เพื่อไขคดีใหญ่ ๆ",
+  },
+  {
+    name: "Zombicide: Black Plague",
+    boardgameImage:
+      "https://cf.geekdo-images.com/kVHuMBxmathfnq42XINBQg__imagepage/img/bcAP5usD-DobalBN6rRIyN6sJQk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2482309.jpg",
+    minPlayer: 1,
+    maxPlayer: 6,
+    age: 14,
+    type: "CORE",
+    category: "THEMATIC",
+    thaiLC: "More Than a Game",
+    description: "ร่วมมือกันฆ่าซอมบี้ในยุคกลาง! แล้วฆ่าซอมบี้ให้มากที่สุด!",
+  },
+  {
+    name: "Samurai",
+    boardgameImage:
+      "https://cf.geekdo-images.com/o9-sNXmFS_TLAb7ZlZ4dRA__imagepage/img/yXniplPYXixomNLic5j_DsgF9xI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3211873.jpg",
+    minPlayer: 2,
+    maxPlayer: 4,
+    age: 10,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Lanlalen",
+    description:
+      "แข่งขันกันครองใจประชาชนทั้ง 3 วรรณะ เพื่อรวมญี่ปุ่นภายใต้การปกครองของคุณ",
+  },
+  {
+    name: "The Princes of Florence",
+    thaiName: "เจ้าชายแห่งฟลอเรนซ์",
+    boardgameImage:
+      "https://cf.geekdo-images.com/GdXWqyTfO8F_M9hFtfo-HA__imagepage/img/P0nqirno9L6dp1P4HP-dj6PVfVI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7565506.jpg",
+    minPlayer: 1,
+    maxPlayer: 5,
+    age: 12,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Board Game Academy & Lunar Cafe",
+    description:
+      "ดึงดูดช่างฝีมือและนักวิชาการให้มาเยี่ยมชมพระราชวังของคุณด้วยการสร้างและจัดวางภูมิทัศน์",
+  },
+  {
+    name: "Mind MGMT",
+    thaiName: "ไมนด์ แมเนจเมนท์",
+    boardgameImage:
+      "https://cf.geekdo-images.com/hYP-VIJGRFR8yB78-UN7Rg__imagepage/img/1X9-5PelilGBlFjFaGQKtLrVcAI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5154610.jpg",
+    minPlayer: 1,
+    maxPlayer: 5,
+    age: 13,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "DICE CUP",
+    description:
+      "ผู้เล่นคนอื่น ๆ จะสามารถตามหาผู้สรรหา และจับกุมพวกเขาได้ก่อนที่ MIND MGMT จะชนะเกมแล้วเข้าควบคุมโลกใบนี้ได้หรือไม่?",
+  },
+  {
+    name: "Bitoku",
+    thaiName: "ราชาภูต",
+    boardgameImage:
+      "https://cf.geekdo-images.com/sMP4YfVfwv6vvh_y7EcXzA__imagepage/img/WvpJxV4zbrQC4VgM2gF-LlATsto=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6182978.jpg",
+    minPlayer: 1,
+    maxPlayer: 4,
+    age: 12,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "แข่งขันกันเป็นราชาภูติแห่งพงไพร ออกสำรวจและช่วยเหลือเหล่าดวงวิญญาณที่หลงทาง",
+  },
+  {
+    name: "Kemet: Blood and Sand",
+    thaiName: "โลหิตอาบผืนทราย",
+    boardgameImage:
+      "https://cf.geekdo-images.com/IU-az-0jlIpoUxDHCCclNw__imagepage/img/bdlv2Rb3gKbs_6301geR_OROz7c=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6230640.jpg",
+    minPlayer: 2,
+    maxPlayer: 5,
+    age: 13,
+    type: "CORE",
+    category: "STRATEGY",
+    thaiLC: "Tower Tactic Games",
+    description:
+      "เล่นเป็นเทพเจ้าอียิปต์ผู้ทำสงครามและสร้างกองทัพที่แข็งแกร่งที่สุดเพื่อครอบครองอียิปต์",
   },
   // {
   //   name: ,
@@ -740,7 +995,7 @@ const boardgameData = [
   //   minPlayer: ,
   //   maxPlayer: ,
   //   age: ,
-  //   type: ,
+  //   type: "CORE",
   //   category: ,
   //   thaiLC: ,
   //   description:
